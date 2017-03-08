@@ -1,0 +1,20 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8">
+  <title>Streaming</title>
+</head> 
+<OBJECT id="player" 
+		classid="clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921"
+		codebase="http://downloads.videolan.org/pub/videolan/vlc/latest/win32/axvlc.cab"
+		events="True">
+   <embed id="vlcEmb"  
+		  type="application/x-google-vlc-plugin" 
+		  version="VideoLAN.VLCPlugin.2" 
+		  autoplay="yes" 
+		  loop="no" 
+		  width="640" 
+		  height="480"
+		target="rtsp://raspberrypi:8554/"></embed>
+</OBJECT>
+</html>
