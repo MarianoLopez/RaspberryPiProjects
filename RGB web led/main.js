@@ -1,6 +1,5 @@
 var express = require('express');
 var app = express();
-//var fs = require('fs');
 app.set('view engine', 'jade');
 app.use(express.static('views/public'));
 //need run as root

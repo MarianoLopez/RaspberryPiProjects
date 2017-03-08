@@ -1,0 +1,107 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8">
+  <title>My Aplicación con Sockets</title>
+  <link href="/materialize/css/materialize.css" rel="stylesheet" media="screen" />
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/jquery-2.1.4.js"></script>
+  <script type="text/javascript">
+    var config = {relay:false};
+  </script>
+</head>  
+<header>
+    <nav style="margin-bottom: 1%;">
+        <div class="nav-wrapper teal">
+            <a href="#" class="brand-logo"><img src="/images/raspberry.png" alt="" width="75px" class="responsive-img" ></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down"></ul>
+        </div>
+    </nav>
+</header>
+<main>
+<body>  
+  
+
+
+
+      <div class="row">
+        <div class="col s12 m4 l4">
+          <div class="card">
+            <div class="card-image">
+              <img src="/images/raspberry.png">
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <div class="switch">
+                <label>
+                  Off
+                  <input id="checkbox" type="checkbox" onclick="checkSwitch()">
+                  <span class="lever"></span>
+                  On
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  
+</body>  
+</main>
+<script type="text/javascript">
+    console.log('init socket');
+    var socket = io.connect('http://raspberrypi:8080', { 'forceNew': true });
+    socket.on('config', function(data) {  
+      console.log(data);
+      config.relay = data.relay;
+      $("#checkbox").prop('checked', config.relay);
+    });
+  </script>
+  <script type="text/javascript">
+  function checkSwitch(){
+    config.relay = $('#checkbox').is(':checked');
+    socket.emit('new-message', config);
+  }
+  </script>
+  <footer class="page-footer teal ">
+    <style type="text/css">
+        /*Footer Adhesivo*/
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            transition: background-color 5000s ease-in-out 0s;
+        }
+        .rigth-btn { text-align: right }
+    </style>
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="white-text">Info.....</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            <a class="white-text right" href="#!">© 2017 Copyright Text</a>
+        </div>
+    </div>
+</footer>
+</html> 
