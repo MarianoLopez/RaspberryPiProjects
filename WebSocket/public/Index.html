@@ -7,7 +7,7 @@
   <script src="/socket.io/socket.io.js"></script>
   <script src="/jquery-2.1.4.js"></script>
   <script type="text/javascript">
-    var config = {relay:false};
+    var config = {relay:false,temperatura:null,humedad:null};
   </script>
 </head>  
 <header>
@@ -25,15 +25,14 @@
 
 
       <div class="row">
-        <div class="col s12 m4 l4">
+        <div class="col s12 m4 l3">
           <div class="card">
             <div class="card-image">
-              <img src="/images/raspberry.png">
-              <span class="card-title">Card Title</span>
+              <img src="/images/light-bulb-icon.png">
+              <span class="card-title"></span>
             </div>
             <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
+              <p>Encender Luz.</p>
             </div>
             <div class="card-action">
               <div class="switch">
@@ -47,9 +46,37 @@
             </div>
           </div>
         </div>
-      </div>
+        <div class="col s12 m4 l3">
+          <div class="card">
+            <div class="card-image">
+              <img src="/images/temp.png">
+              <span class="card-title"></span>
+            </div>
+            <div class="card-content">
+              <p>Temperatura.</p>
+            </div>
+            <div class="card-action">
+              <label id="temperatura"></label>
+            </div>
+          </div>
+        </div>
+                <div class="col s12 m4 l3">
+          <div class="card">
+            <div class="card-image">
+              <img src="/images/humedad.png">
+              <span class="card-title"></span>
+            </div>
+            <div class="card-content">
+              <p>Humedad.</p>
+            </div>
+            <div class="card-action">
+              <label id="humedad"></label>
+            </div>
+          </div>
+        </div>
+      </div><!-- row-->
 
-  
+ 
 </body>  
 </main>
 <script type="text/javascript">
@@ -57,8 +84,10 @@
     var socket = io.connect('http://raspberrypi:8080', { 'forceNew': true });
     socket.on('config', function(data) {  
       console.log(data);
-      config.relay = data.relay;
+      config = data;
       $("#checkbox").prop('checked', config.relay);
+      $("#temperatura").text(config.temperatura+" °C");
+      $("#humedad").text(config.humedad+" %");
     });
   </script>
   <script type="text/javascript">
@@ -69,6 +98,10 @@
   </script>
   <footer class="page-footer teal ">
     <style type="text/css">
+        label{
+          font-size: 150%; color:black;  
+        }
+        
         /*Footer Adhesivo*/
         body {
             display: flex;

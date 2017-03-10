@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.15.2",
     "pi-gpio": "0.0.8",
+    "serial-node": "0.0.10",
     "socket.io": "^1.7.3"
   }
 }
