@@ -8,12 +8,16 @@ var serialport = require('serialport'), // serial
      portName = '/dev/ttyACM0',         
      portConfig = {
          baudRate: 9600,
+         dataBits: 8,
+         parity: 'none',
+         stopBits: 1,
+         flowControl: false,
          parser: serialport.parsers.readline('\n')// call myPort.on('data') when a newline is received:
      };
 var myPort = new serialport(portName, portConfig);
 var relay = 12;  
 setup();
-var config = {relay:true,temperatura:null,humedad:null};
+var config = {relay:true,temperatura:null,humedad:null,flame:null};
 
 
 //SOCKET
@@ -30,6 +34,9 @@ io.on('connection', function(socket) {
 });
 
 //SERVER
+app.get('/', function (req, res) {
+  res.sendFile('views/Index.html', {root: __dirname });
+});
 server.listen(8080, function() {  
     console.log('Servidor corriendo en http://localhost:8080');
 });
@@ -45,22 +52,33 @@ function writeValue(pin,value){
 //SERIAL
 myPort.on('open', ()=>{
   console.log('port open, baud rate:',myPort.options.baudRate);
+  setInterval(()=>{
+    myPort.write(new Buffer('data\n','ascii'));
+  },2000);//send data every 2secs
 }); // called when the serial port opens
+myPort.on('close',()=>{
+  console.log('port closed');
+});
 
 myPort.on('data', (data)=>{
-  var arr = data.toString().split(",");
-  var temperatura = arr[0].toString().split(":")[1];
-  var humedad = arr[1].toString().split(":")[1];
-  config.temperatura = temperatura;
-  config.humedad = humedad;
-  io.sockets.emit('config', config);
+    console.log('raw: ',data);
+      var arr = data.toString().split(",");
+      var temperatura = arr[0].toString().split(":")[1];
+      var humedad = arr[1].toString().split(":")[1];
+      var flame = arr[2].toString().split(":")[1];
+      config.temperatura = temperatura;
+      config.humedad = humedad;
+      config.flame = flame;
+      io.sockets.emit('config', config);
 });
+
 
 //on close app
 process.stdin.resume();
 function exitHandler(options, err) {
     gpio.close(relay);
     console.log('close');
+    if(myPort.isOpen()){myPort.close();}
     if (err) console.log(err.stack);
     if (options.exit) process.exit();
 }
