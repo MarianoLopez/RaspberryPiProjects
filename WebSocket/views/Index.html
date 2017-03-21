@@ -2,7 +2,7 @@
 <html lang="en">  
 <head>  
   <meta charset="UTF-8">
-  <title>My Aplicación con Sockets</title>
+  <title>Domótica</title>
   <link href="/materialize/css/materialize.css" rel="stylesheet" media="screen" />
   <script src="/socket.io/socket.io.js"></script>
   <script src="/jquery-2.1.4.js"></script>
@@ -12,16 +12,32 @@
 </head>  
 <header>
     <nav style="margin-bottom: 1%;">
-        <div class="nav-wrapper teal">
-            <a href="#" class="brand-logo"><img src="/images/raspberry.png" alt="" width="75px" class="responsive-img" ></a>
+        <div class="nav-wrapper green darken-1">
+            <a href="#" class="brand-logo"><img src="/images/INNOVAME_CORRIENTES/logo.png" alt="" width="53px" class="responsive-img" >
+            <img src="/images/INNOVAME_CORRIENTES/logo_texto.png" alt="" width="90px" class="responsive-img" ></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down"></ul>
         </div>
     </nav>
 </header>
 <main>
-<body>  
+<body>
+<div class="container">
       <div class="row">
-        <div class="col s12 m4 l3">
+        <div class="col s12 m12 l12 ">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/smartcity.png">
+              <span class="card-title"></span>
+            </div>
+            <div class="card-content">
+              <p align="justify">Se llama domótica a los sistemas capaces de automatizar una vivienda o edificación de cualquier tipo, aportando servicios de gestión energética, seguridad, bienestar y comunicación, y que pueden estar integrados por medio de redes interiores y exteriores de comunicación, cableadas o inalámbricas, y cuyo control goza de cierta ubicuidad, desde dentro y fuera del hogar. Se podría definir como la integración de la tecnología en el diseño inteligente de un recinto cerrado.</p>
+            </div>
+            
+          </div>
+        </div>
+      </div>  
+      <div class="row">
+        <div class="col s6 m4 l3">
           <div class="card">
             <div class="card-image">
               <img src="/images/light-bulb-icon.png">
@@ -42,7 +58,7 @@
             </div>
           </div>
         </div>
-        <div class="col s12 m4 l3">
+        <div class="col s6 m4 l3">
           <div class="card">
             <div class="card-image">
               <img src="/images/temp.png">
@@ -56,7 +72,7 @@
             </div>
           </div>
         </div>
-        <div class="col s12 m4 l3">
+        <div class="col s6 m4 l3">
           <div class="card">
             <div class="card-image">
               <img src="/images/humedad.png">
@@ -70,7 +86,7 @@
             </div>
           </div>
         </div>
-                <div class="col s12 m4 l3">
+                <div class="col s6 m4 l3">
           <div class="card">
             <div class="card-image">
               <img src="/images/flame.png">
@@ -85,10 +101,7 @@
           </div>
         </div>
       </div><!-- row-->
-      <div class="row">
-
-      </div>
-
+</div>
  
 </body>  
 </main>
@@ -110,7 +123,7 @@
     socket.emit('new-message', config);
   }
   </script>
-  <footer class="page-footer teal ">
+  <footer class="page-footer green darken-1 ">
     <style type="text/css">
         label{
           font-size: 150%; color:black;  
@@ -134,21 +147,24 @@
         }
         .rigth-btn { text-align: right }
     </style>
+  <div class="row">
+    <div class="s3 l3 m3">
+        <img class="logo" src="/images/logo_gob_prov.png" style="width: 30%;height: 40%;">
+        <img class="logo" src="/images/INNOVAME_CORRIENTES/innovame.png" style="width: 10%;height: 10%;margin-left:30%">
+    </div>
+  </div>
+  <div class="row">
+    <div class="s6 l6 m6">
+      <a href="http://www.mec.gob.ar/" target="_blank">
+          <img class="logo" src="/images/logo_mec.png" style="width: 30%;height: 30%;margin-left: 2%"></a>
+          <img class="logo" src="/images/INNOVAME_CORRIENTES/programacion.png" style="width: 10%;height: 10%;margin-left:15%">
+          <img class="logo" src="/images/INNOVAME_CORRIENTES/robotica.png" style="width: 9.2%;height: 10%;margin-left:15%">
+    </div>
+  </div>
+  <div class="footer-copyright">
     <div class="container">
-        <div class="row">
-            <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="white-text">Info.....</p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-            </div>
-        </div>
+    <p class="text-lighten-4 right" href="#!">© 2017 INNOVAME</p>
     </div>
-    <div class="footer-copyright">
-        <div class="container">
-            <a class="white-text right" href="#!">© 2017 Copyright Text</a>
-        </div>
-    </div>
+  </div>
 </footer>
 </html> 
