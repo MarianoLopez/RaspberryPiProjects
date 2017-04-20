@@ -3,9 +3,10 @@
 <head>  
   <meta charset="UTF-8">
   <title>Domótica</title>
+  <script src="/jquery-2.1.4.js"></script>
   <link href="/materialize/css/materialize.css" rel="stylesheet" media="screen" />
   <script src="/socket.io/socket.io.js"></script>
-  <script src="/jquery-2.1.4.js"></script>
+  <script src="/materialize/js/materialize.min.js"></script>
   <script type="text/javascript">
     var config = {relay:false,temperatura:null,humedad:null,flame:null};
   </script>
@@ -21,90 +22,166 @@
 </header>
 <main>
 <body>
-<div class="container">
-      <div class="row">
-        <div class="col s12 m12 l12 ">
-          <div class="card">
-            <div class="card-image">
-              <img src="images/smartcity.png">
-              <span class="card-title"></span>
-            </div>
-            <div class="card-content">
-              <p align="justify">Se llama domótica a los sistemas capaces de automatizar una vivienda o edificación de cualquier tipo, aportando servicios de gestión energética, seguridad, bienestar y comunicación, y que pueden estar integrados por medio de redes interiores y exteriores de comunicación, cableadas o inalámbricas, y cuyo control goza de cierta ubicuidad, desde dentro y fuera del hogar. Se podría definir como la integración de la tecnología en el diseño inteligente de un recinto cerrado.</p>
-            </div>
-            
-          </div>
-        </div>
-      </div>  
-      <div class="row">
-        <div class="col s6 m4 l3">
-          <div class="card">
-            <div class="card-image">
-              <img src="/images/light-bulb-icon.png">
-              <span class="card-title"></span>
-            </div>
-            <div class="card-content">
-              <p>Encender Luz.</p>
-            </div>
-            <div class="card-action">
-              <div class="switch">
-                <label>
-                  Off
-                  <input id="checkbox" type="checkbox" onclick="checkSwitch()">
-                  <span class="lever"></span>
-                  On
-                </label>
+ <div id="index-banner" class="parallax-container">
+    <div class="parallax"><img src="images/domotica.jpg" width="40%" height="auto" alt="Unsplashed background img 1"></div>
+  </div>
+  
+  <div class="container" >
+    <div class="row">
+      <div class="col s12 center">
+        <h3><i class="mdi-content-send brown-text"></i></h3>
+        <h4>Domótica</h4>
+        <p class="left-align light">Se llama domótica a los sistemas capaces de automatizar una vivienda o edificación de cualquier tipo, aportando servicios de gestión energética, seguridad, bienestar y comunicación, y que pueden estar integrados por medio de redes interiores y exteriores de comunicación, cableadas o inalámbricas, y cuyo control goza de cierta ubicuidad, desde dentro y fuera del hogar. Se podría definir como la integración de la tecnología en el diseño inteligente de un recinto cerrado.</p>
+      </div>
+    </div>
+        <div class="row">
+          <div class="col s6 m4 l3">
+            <div class="card">
+              <div class="card-image">
+                <img src="/images/light-bulb-icon.png">
+                <span class="card-title"></span>
+              </div>
+              <div class="card-content">
+                <p>Encender Luz.</p>
+              </div>
+              <div class="card-action">
+                <div class="switch">
+                  <label>
+                    Off
+                    <input id="checkbox" type="checkbox" onclick="checkSwitch()">
+                    <span class="lever"></span>
+                    On
+                  </label>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col s6 m4 l3">
-          <div class="card">
-            <div class="card-image">
-              <img src="/images/temp.png">
-              <span class="card-title"></span>
-            </div>
-            <div class="card-content">
-              <p>Temperatura.</p>
-            </div>
-            <div class="card-action">
-              <label id="temperatura"></label>
-            </div>
-          </div>
-        </div>
-        <div class="col s6 m4 l3">
-          <div class="card">
-            <div class="card-image">
-              <img src="/images/humedad.png">
-              <span class="card-title"></span>
-            </div>
-            <div class="card-content">
-              <p>Humedad.</p>
-            </div>
-            <div class="card-action">
-              <label id="humedad"></label>
+          <div class="col s6 m4 l3">
+            <div class="card">
+              <div class="card-image">
+                <img src="/images/temp.png">
+                <span class="card-title"></span>
+              </div>
+              <div class="card-content">
+                <p>Temperatura.</p>
+              </div>
+              <div class="card-action">
+                <label id="temperatura"></label>
+              </div>
             </div>
           </div>
-        </div>
-                <div class="col s6 m4 l3">
-          <div class="card">
-            <div class="card-image">
-              <img src="/images/flame.png">
-              <span class="card-title"></span>
-            </div>
-            <div class="card-content">
-              <p>Fuego.</p>
-            </div>
-            <div class="card-action">
-              <label id="flame"></label>
+          <div class="col s6 m4 l3">
+            <div class="card">
+              <div class="card-image">
+                <img src="/images/humedad.png">
+                <span class="card-title"></span>
+              </div>
+              <div class="card-content">
+                <p>Humedad.</p>
+              </div>
+              <div class="card-action">
+                <label id="humedad"></label>
+              </div>
             </div>
           </div>
+          <div class="col s6 m4 l3">
+            <div class="card">
+              <div class="card-image">
+                <img src="/images/flame.png">
+                <span class="card-title"></span>
+              </div>
+              <div class="card-content">
+                <p>Fuego.</p>
+              </div>
+              <div class="card-action">
+                <label id="flame"></label>
+              </div>
+            </div>
+          </div>
+    </div>
+
+ <div class="row">
+    <div class="col s12 m12 l12">
+      <div class="card">
+        <div class="card-image">
+          <img src="images/funcionamiento.png">
+          <br><br><br>
+          <span class="card-title black-text">¿Cómo funciona?</span>
         </div>
-      </div><!-- row-->
+        <div class="card-content">
+          <p align="justify"><b>Raspberry Pi</b> es un computador de placa reducida de bajo coste, desarrollado con el objetivo de estimular la enseñanza de ciencias de la computación en las escuelas. Su sistema operativo oficial es una versión adaptada de Debian (Linux), denominada Raspbian. Especificación técnica (CPU: 1.2GHz 64-bit quad-core ARMv8, RAM: 1GB, Conectividad de red: Ethernet RJ-45, WiFi, Bluetooth).</p>
+          <p align="justify">En nuestro ejemplo utilizamos una <b>Raspberry Pi 3</b> la misma posee un <b>servidor web</b> montado con Node.JS (Entorno de ejecución multiplataforma, basado en el lenguaje de programación JavaScript y en el motor V8 de Google), el cual se encarga de alojar el sitio web que estamos visualizando e interactuar con Arduino a través de comunicación serial vía USB.</p>
+          <br>
+          <p align="justify"><b>Arduino</b> es una compañía de hardware libre y una comunidad tecnológica que diseña y manufactura placas de desarrollo de hardware y software, compuesta respectivamente por circuitos impresos que integran un microcontrolador y un entorno de desarrollo (IDE), en donde se programa cada placa. El hardware consiste en una placa de circuito impreso con un microcontrolador, puertos digitales y analógicos de entrada/salida.Especificación técnica (CPU: 16Mhz, RAM 2KB).</p>
+          <p align="justify">En nuestro ejemplo, utilizamos un <b>Arduino UNO</b> conecatdo a un sensor de humedad & temperatura "DHT11", su conexión es a través de un PIN (3) <b>digital</b> y con la respectiva libreria distribuida por el fabricante del sensor escrita en C "Lenguaje de programación", podemos consultar al sensor por la temperatura & humedad actual.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
- 
+
+
+
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h2 class="header center white-text text-lighten-3">¿Qué más puedo hacer?</h2>
+        <div class="row center">
+        </div>
+        <br><br>
+      </div>
+    </div>
+    <div class="parallax"><img src="images/freedom.png" alt="Unsplashed background img 1"></div>
+  </div>
+
+    <div class="container">
+    <div class="section">
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <div class="icon-block">
+            <h5 class="center">Robótica Educativa</h5>
+            <img src="images/cabezal-robot1.png" alt="Unsplashed background img 1">
+
+            <p class="light" align="justify">La robótica educativa es un medio de aprendizaje en el cual participan las personas que tienen motivación por el diseño y construcción de creaciones propias (objeto que posee características similares a las de la vida humana o animal). Estas creaciones se dan, en primera instancia, de forma mental y, posteriormente, en forma física y son construidas con diferentes tipos de materiales, y controladas por un sistema computacional.</p>
+            <p class="light" align="justify">Un ejemplo son los kits de autos inteligentes con Arduino, los mismos son utilizados para hacer una introducción temprana a la programación y Arduino</p>
+          </div>
+        </div>
+
+        <div class="col s12 m12 l12">
+          <div class="icon-block">
+          <h5 class="center">Ciudad Inteligente</h5>
+          <img src="images/blog-smart-city.png"alt="Unsplashed background img 1">
+            <!--<h2 class="center brown-text"><i class="material-icons">group</i></h2>-->
+            
+
+            <p class="light">asd 2.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m12 l12">
+          <div class="icon-block">
+          <h5 class="center">Internet de las Cosas</h5>
+          <img src="images/iot.png" width="100%" height="auto" alt="Unsplashed background img 1">
+            <!--<h2 class="center brown-text"><i class="material-icons">settings</i></h2>-->
+            
+
+            <p class="light">asd3.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </body>  
 </main>
+<script type="text/javascript">
+  $(function() {
+    $('.parallax').parallax();
+  });
+</script>
 <script type="text/javascript">
     console.log('init socket');
     var socket = io.connect('http://raspberrypi:8080', { 'forceNew': true });

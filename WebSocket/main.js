@@ -61,7 +61,7 @@ myPort.on('close',()=>{
 });
 
 myPort.on('data', (data)=>{
-    console.log('raw: ',data);
+    //console.log('raw: ',data);
       var arr = data.toString().split(",");
       var temperatura = arr[0].toString().split(":")[1];
       var humedad = arr[1].toString().split(":")[1];
