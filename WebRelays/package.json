@@ -1,0 +1,29 @@
+{
+  "name": "web-relays",
+  "version": "1.0.0",
+  "description": "raspberry pi 3 - relays - nodejs - sockets",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.15.2",
+    "pi-gpio": "^0.0.8",
+    "socket.io": "^1.7.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "-"
+  },
+  "repository": {
+    "type": "git",
+    "url": "null"
+  },
+  "keywords": [
+    "raspberry",
+    "pi",
+    "3",
+    "nodejs",
+    "relays",
+    "scoket"
+  ],
+  "author": "Mariano Lopez",
+  "license": "ISC"
+}
