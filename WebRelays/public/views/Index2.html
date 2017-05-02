@@ -1,0 +1,77 @@
+<!DOCTYPE html>  
+<html lang="en" ng-app="sampleApp">  
+<head>  
+  <meta charset="UTF-8">
+  <title>RaspberryPi3-Relays</title>
+  <link rel="icon" type="image/png" href="/images/nodejs.png" sizes="128x128">
+  <script src="/views/js/angular.min.js"></script>
+  <!--<script src="/views/js/angular-socket-io-master/socket.min.js"></script>-->
+  <link href="/materialize/css/materialize.css" rel="stylesheet" media="screen" />
+  <link href="/materialize/css/footer-adhesivo.css" rel="stylesheet" media="screen" />
+  <script src="/socket.io/socket.io.js"></script>
+  <!--<script src="/materialize/js/materialize.min.js"></script>-->
+  <script src="/views/js/Index2.js"></script>
+</head>  
+<header>
+    <nav>
+        <div class="nav-wrapper amber darken-2">
+            <a href="#" class="brand-logo"><img src="/images/raspberry.png" alt="" width="70px" class="responsive-img" style="padding:2%"></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down"></ul>
+        </div>
+    </nav>
+</header>
+<main>
+<body ng-controller="IndexController">
+ <div id="index-banner" class="parallax-container" style="margin-top:1%">
+    <div class="parallax">
+      <img src="images/smarthome.png">
+    </div>
+  </div>
+  
+  <div class="container" >
+    <div class="row">
+      <div class="col s12 center">
+        <h3><i class="mdi-content-send brown-text"></i></h3>
+        <h4>Domótica</h4>
+        <p class="light" align="justify">Se llama <b>domótica</b> a los sistemas capaces de automatizar una vivienda o edificación de cualquier tipo, aportando servicios de gestión energética, seguridad, bienestar y comunicación, y que pueden estar integrados por medio de redes interiores y exteriores de comunicación, cableadas o inalámbricas, y cuyo control goza de cierta ubicuidad, desde dentro y fuera del hogar. <b>Se podría definir como la integración de la tecnología en el diseño inteligente de un recinto cerrado.</b></p>
+      </div>
+    </div>
+        <div class="row">
+          <div class="col s6 m4 l3">
+            <div class="card">
+              <div class="card-image"><img src="/images/plug.png" style="padding:5%"><span class="card-title"></span></div>
+              <div class="card-content"><p>Relay 1</p></div>
+              <div class="card-action">
+                <div class="switch">
+                  <label>Off<input id="checkbox" type="checkbox" ng-click="send()" ng-model="data.relay"><span class="lever"></span>On</label>
+                </div>
+              </div>
+            </div>
+          </div> 
+          <div class="col s6 m4 l3">
+            <div class="card">
+              <div class="card-image"><img src="/images/plug.png" style="padding:5%"><span class="card-title"></span></div>
+              <div class="card-content"><p>Relay 2</p></div>
+              <div class="card-action">
+                <div class="switch">
+                  <label>Off<input id="checkbox2" type="checkbox" ng-model="data.relay2" ng-click="send()"><span class="lever"></span>On</label>
+                </div>
+              </div>
+            </div>
+          </div>  
+    </div>
+  </div>
+</body>  
+</main>
+<footer class="page-footer amber darken-2">
+  <div class="row">
+    <div class="s3 l3 m3"></div>
+  </div>
+  <div class="row">
+    <div class="s6 l6 m6"></div>
+  </div>
+  <div class="footer-copyright">
+    <p class="text-lighten-4 right-align" href="#!" style="margin:1%">© 2017 Z</p>
+  </div>
+</footer>
+</html> 

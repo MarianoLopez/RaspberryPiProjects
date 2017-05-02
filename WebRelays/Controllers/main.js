@@ -10,6 +10,7 @@ module.exports = function(app,io,Gpio){
 		socket.emit('data',data);
 		//listener
 		socket.on('new-message',function(_data){
+			console.log("data: ",_data);
 			data.relay = _data.relay;
 			data.relay2 = _data.relay2;
 			relay.write(data.relay);
@@ -20,7 +21,7 @@ module.exports = function(app,io,Gpio){
 
 	//SERVER
 	app.get('/', function (req, res) {
-	  res.sendFile('Index.html', {root:'./public/views/' });
+	  res.sendFile('Index2.html', {root:'./public/views/' });
 	});
 	
 
